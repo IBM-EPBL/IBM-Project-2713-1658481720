@@ -1,0 +1,74 @@
+.header{
+  width: 100%;
+  text-align: center;
+  //padding-top: 20px;
+  font-size:20px;
+  font-family: "Lucida Console";
+  background-color:#43FFB6;
+  border:0%;
+  top:0px;
+  bottom:0px;
+  right:0px;
+  left:0px;
+  overflow-y:auto;
+}
+
+body{
+	margin: 0;
+}
+.form{
+background-image: linear-gradient(rgba(25,30,30,0.7),rgba(25,30,30,0.7)),url(../Images/car5.jpg);
+ background-position: center;
+  background-size: cover;
+  position: relative;
+}
+.form{
+text-align: center;
+padding:20px;
+text-top:10px;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.form{
+font-size:22px;
+}
+textarea {
+  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
+}
+input[type=text] {
+  transition: width 0.4s ease-in-out;
+}
+
+input[type=text] {
+  width: 70%;
+  padding: 10px 10px;
+  margin: 5px 0;
+}
+#model{
+ width: 70%;
+}
+#brand{
+width:70%;
+}
+#vehicle{
+width:70%;
+}
+*{
+color:black;
+}
+
+#button{
+  padding: 10px 10px;
+  margin: 0;
+  
+  text-align:center;
+  width:100px;
+}
