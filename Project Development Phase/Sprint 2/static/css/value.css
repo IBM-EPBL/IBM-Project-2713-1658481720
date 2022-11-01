@@ -17,7 +17,7 @@ body{
 	margin: 0;
 }
 .form{
-background-image: linear-gradient(rgba(25,30,30,0.7),rgba(25,30,30,0.7)),url(../Images/car5.jpg);
+background-image: linear-gradient(rgba(25,30,30,0.7),rgba(25,30,30,0.7)),url(../Images/car4.jpg);
  background-position: center;
   background-size: cover;
   position: relative;
@@ -49,6 +49,7 @@ input[type=text] {
 
 input[type=text] {
   width: 70%;
+  height: 10%;
   padding: 10px 10px;
   margin: 5px 0;
 }
