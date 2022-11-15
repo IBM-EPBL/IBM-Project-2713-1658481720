@@ -2,70 +2,102 @@
 <html lang="en" dir="ltr">
 <head>
 <link rel="stylesheet" href="../static/css/value.css">
-<title>Car resale value</title>
-
+<title>Car Resale Value Predicting Application</title>
+<link rel="icon" type="image/x-icon" href="../static/Images/favicon.ico">
+<script src="https://kit.fontawesome.com/b9b6bac803.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+	table, th, td {
+	  padding: 10px;
+	}
+	</style>
 </head>
 <body>
-	<section class="form">
-	<form action="http://localhost:5000/predict" method="GET">
-    <table border="0" align="center">
-    <tbody>
-		<h1>Get the Accurate Resale Value of Your Car</h1>
-    <tr>
-	<td><label for="year" padding:10px>Registration year : </label></td>
-	<td><input id="year" maxlength="50" name="regyear" type="text" />
-	<br>
-	<br>
-	</td>
-	</tr>
-
-	<tr>
-	<td><label for="month">Registration Month : </label></td>
-	<td><input id="month" maxlength="50" name="regmonth" type="text" />
-	<br>
-	<br>
-	</td>
-	</tr>
-
-	<tr>
-	<td><label for="power">Power of car in PS: </label></td>
-	<td><input id="power" maxlength="50" name="powerps" type="text" />
-	<br>
-	<br>
-	</td>
-	</tr>
-
-	<tr>
-	<td><label for="kilometer">Kilometers that car have driven : </label></td>
-	<td><input id="kilometer" maxlength="50" name="kms" type="text" />
-	<br>
-	<br>
-	</td>
-	</tr>
-
-	<tr>
-	<td><label for="geartype">Gear type : </label></td>
-	<td><input type="radio" name="geartype" value="manual"/> Manual 
-	<input type="radio" name="geartype" value="automatic"/> Automatic   
-	<input type="radio" name="geartype" value="not-declared"/> Not declared 
-	<br>
-	<br>
-	</td>
-	</tr>
-
-	<tr>
-	<td><label for="damage">Your car is repaired or damaged : </label></td>
-	<td><input type="radio" name="damage" value="yes"/> Yes
-	<input type="radio" name="damage" value="no"/> No  
-	<input type="radio" name="damage" value="not-declared"/> Not declared 
-	<br>
-	<br>
-	</td>
-	</tr>
-
-	<tr>
-	<td><label for="model">Model Type : </label></td>
-	<td>
+<div class="container">
+	<div class="header">
+	<h1>Get the Accurate Resale Value of Your Car</h1>
+	</div>
+	<form action="http://localhost:5000/predict" class="form">
+	<div class="form-control">
+	<label for="year" padding:10px>Registration year : </label>
+	<input id="year" maxlength="50" name="regyear" type="text" autocomplete="off"/>
+	<i class="fas fa-check-circle"></i>
+	<i class="fas fa-exclamation-circle"></i>
+	<span></span>
+	</div>
+	<div class="form-control">
+	<label for="month">Registration Month : </label>
+	<input id="month" maxlength="50" name="regmonth" type="text" autocomplete="off"/>
+	<i class="fas fa-check-circle"></i>
+	<i class="fas fa-exclamation-circle"></i>
+	<span></span>
+	</div>
+	<div class="form-control">
+	<label for="power">Power of car in PS: </label>
+	<input id="power" maxlength="50" name="powerps" type="text" autocomplete="off"/>
+	<i class="fas fa-check-circle"></i>
+	<i class="fas fa-exclamation-circle"></i>
+	<span></span>
+	</div>
+	<div class="form-control">
+	<label for="kilometer">Kilometers that car have driven : </label>
+	<input id="kilometer" maxlength="50" name="kms" type="text" autocomplete="off"/>
+	<i class="fas fa-check-circle"></i>
+	<i class="fas fa-exclamation-circle"></i>
+	<span></span>
+	</div>
+	<div class="form-control">
+		<h3>Gear Type</h3>
+	<table style="width:50%">
+		<tr>
+			<th></th>
+			<th></th>
+		
+		</tr>
+		<tr>
+			<td>Manual</td>
+			<td><input type="radio" name="geartype" value="manual" id="manual" /></td>
+		</tr>
+		<tr>
+			<td>Automatic</td>
+		  	<td><input type="radio" name="geartype" value="automatic" id="automatic" /></td>
+		</tr>
+		<tr>
+			<td>Not mentioned</td>
+			<td><input type="radio" name="geartype" value="not-declared" id="not" /></td>
+		</tr>
+	  </table> 
+	<i class="fas fa-check-circle"></i>
+	<i class="fas fa-exclamation-circle"></i>
+	<span></span>
+	</div>
+	<div class="form-control">
+		<h3>Your car is repaired or damaged :</h3>
+		<table style="width:50%">
+			<tr>
+				<th></th>
+				<th></th>
+			
+			</tr>
+			<tr>
+				<td>Yes</td>
+				<td><input type="radio" name="damage" value="yes" id="yes"/></td>
+			</tr>
+			<tr>
+				<td>No</td>
+				  <td><input type="radio" name="damage" value="no" id="no"/></td>
+			</tr>
+			<tr>
+				<td>Not Declared</td>
+				<td><input type="radio" name="damage" value="not-declared" id="notdec"/></td>
+			</tr>
+		  </table> 
+	<i class="fas fa-check-circle"></i>
+	<i class="fas fa-exclamation-circle"></i>
+	<span></span>
+	</div>
+	<div class="form-control">
+	<label for="model">Model Type : </label>
 	<select name="model" id="model"> 
 	<option value="" disabled selected hidden>Choose Model Name...</option>
     <option value="golf">Golf </option>
@@ -348,16 +380,13 @@
 	<option value="48429">48429 </option>
 	<option value="serie_1">Serie 1 </option>
 	<option value="discovery_sport">Discovery Sport </option>
-
 	</select> 
-	<br>
-	<br>
-	</td>	
-	</tr>
-
-	<tr>
-	<td><label for="brand">Brand :</label></td>
-	<td>
+	<i class="fas fa-check-circle"></i>
+	<i class="fas fa-exclamation-circle"></i>
+	<span></span>
+	</div>
+	<div class="form-control">
+	<label for="brand">Brand :</label>
 	<select name="brand" id="brand">
 	<option value="" disabled selected hidden>Choose Brand Name...</option>
 	<option value="volkswagen">Volkswagen </option>
@@ -401,15 +430,13 @@
 	<option value="land_rover">Land Rover </option>
 	<option value="lada">Lada </option>
 	</select>
-	<br>
-	<br>
-	</td>
-	</tr>
-
-	<tr>
-	<td><label for="fuelType">Fuel Type :</label></td>
-	<td>
-	<select name="fuelType" id="brand">
+	<i class="fas fa-check-circle"></i>
+	<i class="fas fa-exclamation-circle"></i>
+	<span></span>
+	</div>
+	<div class="form-control">
+	<label for="fuelType">Fuel Type :</label>
+	<select name="fuelType" id="fuel">
 	<option value="" disabled selected hidden>Choose Fuel Type...</option>
 	<option value="petrol"> Petrol </option>
 	<option value="diesel"> Diesel </option>
@@ -420,14 +447,12 @@
 	<option value="others">Others </option>
 	<option value="electric">Electric </option>
 	</select>
-	<br>
-	<br>
-	</td>
-	</tr>
-
-	<tr>
-	<td><label for="vehicletype">Vehicle type:</label></td>
-	<td>
+	<i class="fas fa-check-circle"></i>
+	<i class="fas fa-exclamation-circle"></i>
+	<span></span>
+	</div>
+	<div class="form-control">
+	<label for="vehicletype">Vehicle type: </label>
 	<select name="vehicletype" id="vehicle" >
 	<option value="" disabled selected hidden>Choose Vehicle Type...</option>
 	<option value="coupe">Coupe </option>  
@@ -440,15 +465,12 @@
 	<option value="andere">Andere </option>
 	<option value="volkswagen">Volkswagen </option>
 	</select>
-	<br>
-	<br>
-	</td>
-	</tr>
-	</tbody>
-	</table>
-	<input name="Submit" type="Submit" value="Submit" id="button"/>
+	<i class="fas fa-check-circle"></i>
+	<i class="fas fa-exclamation-circle"></i>
+	<span></span>
+	</div>
+	<input type="submit" id="submit"></input>
 	</form> 
-  </section>  
- 
-</body
+ </div>
+</body>
 </html>
