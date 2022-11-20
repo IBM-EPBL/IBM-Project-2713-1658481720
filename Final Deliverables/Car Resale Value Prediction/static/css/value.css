@@ -1,0 +1,130 @@
+*{
+padding:0px;
+margin:0;
+box-sizing:border-box;
+font-family: cursive;
+font-weight: bold;
+color: #E74C3C;
+}
+
+body{
+	background-image: linear-gradient(rgba(25,30,30,0.7),rgba(25,30,30,0.7)),url(../Images/car2.png);
+	min-height:100vh;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+
+.header{
+	color:Black;
+	text-align:center;
+	padding:10px 0px 10px 100px;
+}
+
+#model{
+	width:500px;
+	color: black;
+}
+
+#brand{
+	width:500px;
+	color: black;
+}
+
+#fuel{
+	width:500px;
+	color: black;
+}
+
+#vehicle{
+	width:500px;
+	color: black;
+}
+
+.form{
+	padding:30px 40px;
+}
+
+.form-control{
+	margin-bottom:10px;
+	padding-bottom: 20px;
+	position:relative;
+	margin-left: 100px;
+} 
+
+.form-control label{
+	display:block;
+	margin-bottom:5px;
+}
+
+.form-control input{
+	border: 2px solid #f0f0f0;
+	width:80%;
+	font-size :.8rem;
+	padding:5px;
+	display:inline-table;
+}
+
+.form-control i{
+	position:absolute;
+	right:20px;
+	top:35px;
+	visibility:hidden;
+}
+
+.form-control span{
+	position:absolute;
+	left:0;
+	bottom:0;
+	visibility:hidden;
+	font-weight:bolder;
+	font-style:italic;
+	font-size:1rem;
+}
+
+.form-control.success input{
+	border-color:#2ecc71;
+}
+
+.form-control.error input{
+	border-color:#e743c3;
+}
+
+.form-control.error span{
+	color:red;
+	visibility:visible;
+}  
+
+
+
+.form-control.success i.fa-check-circle {
+	border-color:#2ecc71;
+	visibility:visible;
+}
+
+.form-control.error i.fa-exclamation-circle {
+	border-color:#e73c3c;
+	visibility:visible;  
+}
+
+.form #submit{
+	background-color:#E74C3C;
+	border:none;
+	outline:none;
+	color:white;
+	width:500px;
+	border-radius:4px;
+	padding:10px;
+	cursor:pointer;
+	transition:all .5s;
+	font-size:1rem;
+	margin-left: 100px;
+}
+
+.form #submit:hover{
+	background-color:#6441a5;
+}
+
+.form-control #manual{
+	padding-bottom: 20%;
+}

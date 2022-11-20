@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<link rel="stylesheet" href="../static/css/value.css">
+<title>Car Resale Value Predicting Application</title>
+<link rel="icon" type="image/x-icon" href="../static/Images/favicon.ico">
+<script src="https://kit.fontawesome.com/b9b6bac803.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+	table, th, td {
+	  padding: 10px;
+	}
+	</style>
+</head>
+<body>
+<div class="container">
+	<div class="header">
+	<h1>Get the Accurate Resale Value of Your Car</h1>
+	</div>
+	<form action="http://localhost:5000/predict" class="form">
+	<div class="form-control">
+	<label for="year" padding:10px>Registration year : </label>
+	<input id="year" maxlength="50" name="regyear" type="text" autocomplete="off"/>
+	<i class="fas fa-check-circle"></i>
+	<i class="fas fa-exclamation-circle"></i>
+	<span></span>
+	</div>
+	<div class="form-control">
+	<label for="month">Registration Month : </label>
+	<input id="month" maxlength="50" name="regmonth" type="text" autocomplete="off"/>
+	<i class="fas fa-check-circle"></i>
+	<i class="fas fa-exclamation-circle"></i>
+	<span></span>
+	</div>
+	<div class="form-control">
+	<label for="power">Power of car in PS: </label>
+	<input id="power" maxlength="50" name="powerps" type="text" autocomplete="off"/>
+	<i class="fas fa-check-circle"></i>
+	<i class="fas fa-exclamation-circle"></i>
+	<span></span>
+	</div>
+	<div class="form-control">
+	<label for="kilometer">Kilometers that car have driven : </label>
+	<input id="kilometer" maxlength="50" name="kms" type="text" autocomplete="off"/>
+	<i class="fas fa-check-circle"></i>
+	<i class="fas fa-exclamation-circle"></i>
+	<span></span>
+	</div>
+	<div class="form-control">
+		<h3>Gear Type</h3>
+	<table style="width:50%">
+		<tr>
+			<th></th>
+			<th></th>
+		
+		</tr>
+		<tr>
+			<td>Manual</td>
+			<td><input type="radio" name="geartype" value="manual" id="manual" /></td>
+		</tr>
+		<tr>
+			<td>Automatic</td>
+		  	<td><input type="radio" name="geartype" value="automatic" id="automatic" /></td>
+		</tr>
+		<tr>
+			<td>Not mentioned</td>
+			<td><input type="radio" name="geartype" value="not-declared" id="not" /></td>
+		</tr>
+	  </table> 
+	<i class="fas fa-check-circle"></i>
+	<i class="fas fa-exclamation-circle"></i>
+	<span></span>
+	</div>
+	<div class="form-control">
+		<h3>Your car is repaired or damaged :</h3>
+		<table style="width:50%">
+			<tr>
+				<th></th>
+				<th></th>
+			
+			</tr>
+			<tr>
+				<td>Yes</td>
+				<td><input type="radio" name="damage" value="yes" id="yes"/></td>
+			</tr>
+			<tr>
+				<td>No</td>
+				  <td><input type="radio" name="damage" value="no" id="no"/></td>
+			</tr>
+			<tr>
+				<td>Not Declared</td>
+				<td><input type="radio" name="damage" value="not-declared" id="notdec"/></td>
+			</tr>
+		  </table> 
+	<i class="fas fa-check-circle"></i>
+	<i class="fas fa-exclamation-circle"></i>
+	<span></span>
+	</div>
+	<div class="form-control">
+	<label for="model">Model Type : </label>
+	<select name="model" id="model"> 
+	<option value="" disabled selected hidden>Choose Model Name...</option>
+    <option value="golf">Golf </option>
+	<option value="grand">Grand </option>
+	<option value="fabia">Fabia </option>
+	<option value="3er">3er </option>
+	<option value="2_reihe">2 Reihe </option>
+	<option value="andere">Andere </option>
+	<option value="c_max">C Max </option>
+	<option value="3_reihe">3 Reihe </option>
+	<option value="passat">Passat </option>
+	<option value="navara">Navara </option>
+	<option value="ka">Ka </option>
+	<option value="polo">Polo </option>
+	<option value="twingo">Twingo </option>
+	<option value="a_klasse">A klasse </option>
+	<option value="scirocco">Scirocco </option>
+	<option value="5er">5er </option>
+	<option value="meriva">Meriva </option>
+	<option value="arosa">Arosa </option>
+	<option value="c4">C4 </option>
+	<option value="civic">Civic </option>
+	<option value="transporter">Transporter </option>
+	<option value="punto">Punto </option>
+	<option value="e_klasse">E Klasse </option>
+	<option value="clio">Clio </option>
+	<option value="kadett">Kadett </option>
+	<option value="kangoo">Kangoo </option>
+	<option value="corsa">Corsa </option>
+	<option value="one">One </option>
+	<option value="fortwo">Fortwo </option>
+	<option value="1er">1er </option>
+	<option value="b_klasse">B Klasse </option>
+	<option value="signum">Signum </option>
+	<option value="astra">Astra </option>
+	<option value="a8">A8 </option>
+	<option value="jetta">Jetta </option>
+	<option value="fiesta">Fiesta </option>
+	<option value="c_klasse">C Klasse </option>
+	<option value="micra">Micra </option>
+	<option value="vito">Vito </option>
+	<option value="sprinter">Sprinter </option>
+	<option value="156">156 </option>
+	<option value="escort">Escort </option>
+	<option value="forester">Forester </option>
+	<option value="xc_reihe">Xc Reihe </option>
+	<option value="scenic">Scenic </option>
+	<option value="a4">A4 </option>
+	<option value="a1">A1 </option>
+	<option value="insignia">Insignia </option>
+	<option value="combo">Combo </option>
+	<option value="focus">Focus </option>
+	<option value="tt">Tt </option>
+	<option value="a6">A6 </option>
+	<option value="jazz">Jazz </option>
+	<option value="omega">Omega </option>
+	<option value="slk">Slk </option>
+	<option value="7er">7er </option>
+	<option value="80">80 </option>
+	<option value="147">147 </option>
+	<option value="glk">Glk </option>
+	<option value="100">100 </option>
+	<option value="z_reihe">Z Reihe </option>
+	<option value="sportage">Sportage </option>
+	<option value="sorento">Sorento </option>
+	<option value="v40">V40 </option>
+	<option value="5er">5er </option>
+	<option value="ibiza">Ibiza </option>
+	<option value="3er">3er </option>
+	<option value="mustang">Mustang </option>
+	<option value="eos">Eos </option>
+	<option value="touran">Touran </option>
+	<option value="getz">Getz </option>
+	<option value="a3">A3 </option>
+	<option value="almera">Almera </option>
+	<option value="megane">Megane </option>
+	<option value="7er">7er </option>
+	<option value="1er">1er </option>
+	<option value="lupo">Lupo </option>
+	<option value="r19">R19 </option>
+	<option value="zafira">Zafira </option>
+	<option value="caddy">Caddy </option>
+	<option value="2_reihe">2 Reihe </option>
+	<option value="mondeo">Mondeo </option>
+	<option value="cordoba">Cordoba </option>
+	<option value="colt">Colt </option>
+	<option value="impreza">Impreza </option>
+	<option value="vectra">Vectra </option>
+	<option value="berlingo">Berlingo </option>
+	<option value="80">80 </option>
+	<option value="m_klasse">M Klasse </option>
+	<option value="tiguan">Tiguan </option>
+	<option value="i_reihe">I Reihe </option>
+	<option value="espace">Espace </option>
+	<option value="sharan">Sharan </option>
+	<option value="6_reihe">6 Reihe </option>
+	<option value="panda">Panda </option>
+	<option value="up">Up </option>
+	<option value="seicento">Seicento </option>
+	<option value="ceed">Ceed </option>
+	<option value="5_reihe">5 Reihe </option>
+	<option value="yeti">Yeti </option>
+	<option value="octavia">Octavia </option>
+	<option value="mii">Mii </option>
+	<option value="rx_reihe">Rx Reihe </option>
+	<option value="6er">6er </option>
+	<option value="modus">Modus </option>
+	<option value="fox">Fox </option>
+	<option value="matiz">Matiz </option>
+	<option value="beetle">Beetle </option>
+	<option value="c1">C1 </option>
+	<option value="rio">Rio </option>
+	<option value="touareg">Touareg </option>
+	<option value="logan">Logan </option>
+	<option value="spider">Spider </option>
+	<option value="cuore">Cuore </option>
+	<option value="s_max">S Max </option>
+	<option value="a2">A2 </option>
+	<option value="x_reihe">X Reihe </option>
+	<option value="a5">A5 </option>
+	<option value="galaxy">Galaxy </option>
+	<option value="c3">C3 </option>
+	<option value="viano">Viano </option>
+	<option value="s_klasse">S Klasse </option>
+	<option value="1_reihe">1 Reihe </option>
+	<option value="avensis">Avensis </option>
+	<option value="sl">Sl </option>
+	<option value="roomster">Roomster </option>
+	<option value="q5">Q5 </option>
+	<option value="kaefer">Kaefer </option>
+	<option value="santa">Santa </option>
+	<option value="cooper">Cooper </option>
+	<option value="leon">Leon </option>
+	<option value="4_reihe">4 Reihe </option>
+	<option value="500">500 </option>
+	<option value="laguna">Laguna </option>
+	<option value="ptcruiser">Ptcruiser </option>
+	<option value="clk">Clk </option>
+	<option value="primera">Primera </option>
+	<option value="exeo">Exeo </option>
+	<option value="159">159 </option>
+	<option value="transit">Transit </option>
+	<option value="juke">Juke </option>
+	<option value="qashqai">Qashqai </option>
+	<option value="carisma">Carisma </option>
+	<option value="accord">Accord </option>
+	<option value="corolla">Corolla </option>
+	<option value="lanos">Lanos </option>
+	<option value="phaeton">Phaeton </option>
+	<option value="boxster">Boxster </option>
+	<option value="verso">Verso </option>
+	<option value="swift">Swift </option>
+	<option value="rav">Rav </option>
+	<option value="kuga">Kuga </option>
+	<option value="picanto">Picanto </option>
+	<option value="kalos">Kalos </option>
+	<option value="superb">Superb </option>
+	<option value="stilo">Stilo </option>
+	<option value="alhambra">Alhambra </option>
+	<option value="911">911 </option>
+	<option value="mx_reihe">Mx Reihe </option>
+	<option value="m_reihe">M Reihe </option>
+	<option value="roadster">Roadster </option>
+	<option value="ypsilon">Ypsilon </option>
+	<option value="cayenne">Cayenne </option>
+	<option value="galant">Galant </option>
+	<option value="justy">Justy </option>
+	<option value="90">90 </option>
+	<option value="sirion">Sirion </option>
+	<option value="crossfire">Crossfire </option>
+	<option value="6_reihe">6 Reihe </option>
+	<option value="agila">Agila </option>
+	<option value="duster">Duster </option>
+	<option value="cr_reihe">Cr Reihe </option>
+	<option value="v50">V50 </option>
+	<option value="discovery">Discovery </option>
+	<option value="c_reihe">C Reihe </option>
+	<option value="v_klasse">V Klasse </option>
+	<option value="yaris">Yaris </option>
+	<option value="c5">C5 </option>
+	<option value="aygo">Aygo </option>
+	<option value="cc">Cc </option>
+	<option value="carnival">Carnival </option>
+	<option value="fusion">Fusion </option>
+	<option value="bora">Bora </option>
+	<option value="forfour">Forfour </option>
+	<option value="100">100 </option>
+	<option value="cl">Cl </option>
+	<option value="tigra">Tigra </option>
+	<option value="156">156 </option>
+	<option value="300c">300c </option>
+	<option value="100">100 </option>
+	<option value="147">147 </option>
+	<option value="q3">Q3 </option>
+	<option value="spark">Spark </option>
+	<option value="v70">V70 </option>
+	<option value="x_type">X Type </option>
+	<option value="5_reihe">5 Reihe </option>
+	<option value="ducato">Ducato </option>
+	<option value="s_type">S Type </option>
+	<option value="x_trail">X Trail </option>
+	<option value="toledo">Toledo </option>
+	<option value="altea">Altea </option>
+	<option value="7er">7er </option>
+	<option value="voyager">Voyager </option>
+	<option value="calibra">Calibra </option>
+	<option value="bravo">Bravo </option>
+	<option value="range_rover">Range Rover </option>
+	<option value="antara">Antara </option>
+	<option value="tucson">Tucson </option>
+	<option value="q7">Q7 </option>
+	<option value="citigo">Citigo </option>
+	<option value="jimny">Jimny </option>
+	<option value="cx_reihe">Cx Reihe </option>
+	<option value="wrangler">Wrangler </option>
+	<option value="lybra">Lybra </option>
+	<option value="range_rover_sport">Range Rover Sport </option>
+	<option value="lancer">Lancer </option>
+	<option value="159">159 </option>
+	<option value="freelander">Freelander </option>
+	<option value="captiva">Captiva </option>
+	<option value="c2">C2 </option>
+	<option value="500">500 </option>
+	<option value="range_rover_evoque">Range Rover Evoque </option>
+	<option value="sandero">Sandero </option>
+	<option value="note">Note </option>
+	<option value="900">900 </option>
+	<option value="147">147 </option>
+	<option value="defender">Defender </option>
+	<option value="cherokee">Cherokee </option>
+	<option value="clubman">Clubman </option>
+	<option value="samara">Samara </option>
+	<option value="2_reihe">2 Reihe </option>
+	<option value="1er">1er </option>
+	<option value="3er">3er </option>
+	<option value="601">601 </option>
+	<option value="3_reihe">3 Reihe </option>
+	<option value="4_reihe">4 Reihe </option>
+	<option value="5er">5er </option>
+	<option value="6_reihe">6 Reihe </option>
+	<option value="legacy">Legacy </option>
+	<option value="pajero">Pajero </option>
+	<option value="auris">Auris </option>
+	<option value="niva">Niva </option>
+	<option value="5_reihe">5 Reihe </option>
+	<option value="s60">S60 </option>
+	<option value="nubira">Nubira </option>
+	<option value="vivaro">Vivaro </option>
+	<option value="g_klasse">G Klasse </option>
+	<option value="lodgy">Lodgy </option>
+	<option value="850">850 </option>
+	<option value="serie_2">Serie 2 </option>
+	<option value="6er">6er </option>
+	<option value="charade">Charade </option>
+	<option value="croma">Croma </option>
+	<option value="outlander">Outlander </option>
+	<option value="gl">Gl </option>
+	<option value="doblo">Doblo </option>
+	<option value="musa">Musa </option>
+	<option value="amarok">Amarok </option>
+	<option value="156">156 </option>
+	<option value="move">Move </option>
+	<option value="9000">9000 </option>
+	<option value="v60">V60 </option>
+	<option value="145">145 </option>
+	<option value="aveo">Aveo </option>
+	<option value="200">200 </option>
+	<option value="300c">300c </option>
+	<option value="b_max">B Max </option>
+	<option value="delta">Delta </option>
+	<option value="terios">Terios </option>
+	<option value="rangerover">RangeRover </option>
+	<option value="90">90 </option>
+	<option value="materia">Materia </option>
+	<option value="kalina">Kalina </option>
+	<option value="elefantino">Elefantino </option>
+	<option value="i3">I3 </option>
+	<option value="kappa">Kappa </option>
+	<option value="serie_3">Serie 3 </option>
+	<option value="48429">48429 </option>
+	<option value="serie_1">Serie 1 </option>
+	<option value="discovery_sport">Discovery Sport </option>
+	</select> 
+	<i class="fas fa-check-circle"></i>
+	<i class="fas fa-exclamation-circle"></i>
+	<span></span>
+	</div>
+	<div class="form-control">
+	<label for="brand">Brand :</label>
+	<select name="brand" id="brand">
+	<option value="" disabled selected hidden>Choose Brand Name...</option>
+	<option value="volkswagen">Volkswagen </option>
+	<option value="audi">Audi </option>
+	<option value="jeep">Jeep </option>
+	<option value="skoda">Skoda </option>
+	<option value="bmw">Bmw </option>
+	<option value="peugeot">Peugeot </option>
+	<option value="ford">Ford </option>
+	<option value="mazda">Mazda </option>
+	<option value="nissan">Nissan </option>
+	<option value="renault">Renault </option>
+	<option value="mercedes_benz">Mercedes Benz </option>
+	<option value="opel">Opel </option>
+	<option value="seat">Seat </option>
+	<option value="citroen">Citroen </option>
+	<option value="honda">Honda </option>
+	<option value="fiat">Fiat </option>
+	<option value="mini">Mini </option>
+	<option value="smart">Smart </option>
+	<option value="hyundai">Hyundai </option>
+	<option value="sonstige_autos">Sonstige Autos </option>
+	<option value="alfa_romeo">Alfa Romeo </option>
+	<option value="subaru">Subaru </option>
+	<option value="volvo">Volvo </option>
+	<option value="mitsubishi">Mitsubishi </option>
+	<option value="kia">Kia </option>
+	<option value="suzuki">Suzuki </option>
+	<option value="lancia">Lancia </option>
+	<option value="porsche">Porsche </option>
+	<option value="toyota">Toyota </option>
+	<option value="chevrolet">Chevrolet </option>
+	<option value="dacia">Dacia </option>
+	<option value="daihatsu">Daihatsu </option>
+	<option value="trabant">Trabant </option>
+	<option value="saab">Saab </option>
+	<option value="chrysler">Chrysler </option>
+	<option value="jaguar">Jaguar </option>
+	<option value="daewoo">Daewoo </option>
+	<option value="rover">Rover </option>
+	<option value="land_rover">Land Rover </option>
+	<option value="lada">Lada </option>
+	</select>
+	<i class="fas fa-check-circle"></i>
+	<i class="fas fa-exclamation-circle"></i>
+	<span></span>
+	</div>
+	<div class="form-control">
+	<label for="fuelType">Fuel Type :</label>
+	<select name="fuelType" id="fuel">
+	<option value="" disabled selected hidden>Choose Fuel Type...</option>
+	<option value="petrol"> Petrol </option>
+	<option value="diesel"> Diesel </option>
+	<option value="not-declared"> Not Declared </option>
+	<option value="lpg">LPG </option>
+	<option value="cng">CNG </option>
+	<option value="hybrid">Hybrid </option>
+	<option value="others">Others </option>
+	<option value="electric">Electric </option>
+	</select>
+	<i class="fas fa-check-circle"></i>
+	<i class="fas fa-exclamation-circle"></i>
+	<span></span>
+	</div>
+	<div class="form-control">
+	<label for="vehicletype">Vehicle type: </label>
+	<select name="vehicletype" id="vehicle" >
+	<option value="" disabled selected hidden>Choose Vehicle Type...</option>
+	<option value="coupe">Coupe </option>  
+    <option value="suv">SUV </option>  
+    <option value="kleinwagen">Kleinwagen </option>  
+    <option value="limousine">Limousine </option>
+	<option value="cabrio">Cabrio </option>
+	<option value="bus">Bus </option>
+	<option value="kombi">Kombi </option>
+	<option value="andere">Andere </option>
+	<option value="volkswagen">Volkswagen </option>
+	</select>
+	<i class="fas fa-check-circle"></i>
+	<i class="fas fa-exclamation-circle"></i>
+	<span></span>
+	</div>
+	<input type="submit" id="submit"></input>
+	</form> 
+ </div>
+</body>
+</html>
